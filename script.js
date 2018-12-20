@@ -1,34 +1,56 @@
-( function( $ ) {
-$( document ).ready(function() {
-$(document).ready(function(){
+'use strict';
 
-$('#cssmenu2 > ul > li ul').each(function(index, e){
-  var count = $(e).find('li').length;
-  var content = '<span class=\"cnt\">' + count + '</span>';
-  $(e).closest('li').children('a').append(content);
-});
-$('#cssmenu2 ul ul li:odd').addClass('odd');
-$('#cssmenu2 ul ul li:even').addClass('even');
-$('#cssmenu2 > ul > li > a').click(function() {
-  $('#cssmenu2 li').removeClass('active');
-  $(this).closest('li').addClass('active');
-  var checkElement = $(this).next();
-  if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-    $(this).closest('li').removeClass('active');
-    checkElement.slideUp('normal');
-  }
-  if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-    $('#cssmenu2 ul ul:visible').slideUp('normal');
-    checkElement.slideDown('normal');
-  }
-  if($(this).closest('li').find('ul').children().length == 0) {
-    return true;
-  } else {
-    return false;
-  }
+
+function blankChange() {
+    var x = document.getElementById("blank");
+    let Colors = ["azure", "bisque", "seashell", "salmon", "powderblue"];
+    var cNum = Math.floor(Math.random() * (Colors.length));
+    let Loves = ["Kai of EXO", "Tattoos", "Typography", "Instagramming", "Rommance"];
+    var lNum = Math.floor(Math.random() * (Loves.length));
+    x.style.color = Colors[cNum];
+    x.innerHTML = Loves[lNum];
+}
+
+function changeToo() {
+    var x = document.getElementById("category");
+    var y = document.getElementById("blank");
+
+    x.innerHTML = y.innerHTML;
+}
+
+$(window).load(function () {
+            $('#load').hide();
 });
 
-});
-
-});
-} )( jQuery );
+module.exports = {
+    "env": {
+        "es6": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "indent": [2, 2],
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+};
+    
