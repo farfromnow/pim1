@@ -5,7 +5,7 @@ function blankChange() {
     var x = document.getElementById("blank");
     let Colors = ["azure", "bisque", "seashell", "salmon", "powderblue"];
     var cNum = Math.floor(Math.random() * (Colors.length));
-    let Loves = ["Kai of EXO", "Tattoos", "Typography", "Instagramming", "Rommance"];
+    let Loves = ["Kai of EXO", "Tattoos", "Typography", "Instagramming", "Rommance", "Movies", "Music Videos", "Webtoon"];
     var lNum = Math.floor(Math.random() * (Loves.length));
     x.style.color = Colors[cNum];
     x.innerHTML = Loves[lNum];
